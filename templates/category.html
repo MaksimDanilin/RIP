@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href=" {% static 'css/category.css'  %}">
+{% endblock %}
+
+{% block title %}
+    <strong>
+        {{ data.category.title }}
+    </strong>
+{% endblock %}
+
+{% block content %}
+    <div>
+        {% for item in data.items %}
+            <div id="name">{{ item.name }}</div>
+            <div class="ds">
+                <img src="/static/img/{{ data.category.id }}_{{ item.id_item }}.jpg">
+                <p id="i_ds">{{ item.price }}<span> ₽</span></p>
+                <p>{{ item.discription }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
