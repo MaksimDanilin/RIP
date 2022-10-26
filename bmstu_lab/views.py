@@ -1,8 +1,14 @@
+from rest_framework import viewsets
+from bmstu_lab.serializers import CategoriesSerializer
+from bmstu_lab.serializers import ItemsSerializer
+from bmstu_lab.serializers import CustomersSerializer
 from django.shortcuts import render
 from bmstu_lab.models import Categories
 from bmstu_lab.models import Items
+from bmstu_lab.models import Customers
 # Create your views here.
 from datetime import date
+
 '''
 f_categories = { 'data': {
         'categories': [
@@ -46,13 +52,31 @@ def GetCategory(request, id):
     }})
 '''
 
+
+class CategoriesViewSet(viewsets.ModelViewSet):
+    queryset = Categories.objects.all()
+    serializer_class = CategoriesSerializer
+
+
+class ItemsViewSet(viewsets.ModelViewSet):
+    queryset = Items.objects.all()
+    serializer_class = ItemsSerializer
+
+
+class CustomersViewSet(viewsets.ModelViewSet):
+    queryset = Customers.objects.all()
+    serializer_class = CustomersSerializer
+
+
 def GetCategories(request):
     return render(request, 'categories.html', {'data': {
         'categories': Categories.objects.all()
     }})
+
 
 def GetItems(request, id):
     return render(request, 'category.html', {'data': {
         'category': Categories.objects.filter(id=id)[0],
         'items': Items.objects.filter(id_category=id)
     }})
+

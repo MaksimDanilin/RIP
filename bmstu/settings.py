@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bmstu_lab.apps.BmstuLabConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
