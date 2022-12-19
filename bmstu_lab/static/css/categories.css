@@ -1,0 +1,33 @@
+body {
+    background: url(../img/orig.jpg) no-repeat top left 640px;
+    background-size: 4%;
+}
+
+#title {
+    font-family: "Apple Symbols";
+    margin: 30%;
+    font-size: 30px;
+}
+
+strong {
+    font-size: 20px;
+}
+
+.m_link {
+    text-decoration: none;
+    color: black;
+}
+
+.m_link:hover::after {
+    content: ' ->';
+    color: cornflowerblue;
+}
+
+.m_link:hover {
+    color: cornflowerblue;
+    cursor: pointer;
+}
+
+.catalog {
+    border: 1px solid aquamarine;
+}
